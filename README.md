@@ -61,6 +61,7 @@ Criação de um mapa interativo com a localização das casas identificadas por 
 # 3. Estratégia da Solução
 
 **Step 01. Data Description:**
+A base de dados original possui 21613 registros de transações com 21 atributos por imóvel. Foram identificados 353 registros repetidos. Podem se tratar de imóveis vendidos mais de uma vez durante o período, se possuírem datas diferentes. Caso possuam a mesma data, serão removidos
 
 **Step 02. Feature Engineering:**
 
