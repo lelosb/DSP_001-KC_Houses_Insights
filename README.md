@@ -10,7 +10,7 @@ Antes de começar o projeto, devemos contextualizar e entender como o negócio f
 
 Como membros da equipe de dados da empresa, devemos suportar as decisões das lideranças ajudando a encontrar as melhores oportunidades de negócio no mercado de imóveis, maximizando a receita encontrando as melhores oportunidades.
 
-A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e depois revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita.
+A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita.
 
 Entretanto, as casas possuem muitos atributos que as tornam mais ou menos atrativas aos compradores e vendedores e a localização e o período do ano também podem influenciar os preços.
 
