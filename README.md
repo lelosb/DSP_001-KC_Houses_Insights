@@ -6,6 +6,8 @@
 
 # 1. Business Problem.
 
+We work in the Data Science team of a Real State company
+
 
 # 2. Business Assumptions.
 
@@ -25,9 +27,7 @@ My strategy to solve this challenge was:
 
 **Step 06. Feature Selection:**
 
-**Step 07. Machine Learning Modelling:**
 
-**Step 08. Hyperparameter Fine Tunning:**
 
 **Step 09. Convert Model Performance to Business Values:**
 
@@ -47,9 +47,6 @@ My strategy to solve this challenge was:
 
 **True/False.**
 
-# 5. Machine Learning Model Applied
-
-# 6. Machine Learning Modelo Performance
 
 # 7. Business Results
 
