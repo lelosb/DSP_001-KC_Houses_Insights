@@ -43,35 +43,22 @@ O primeiro passo é carregar a base de dados e verificar o se existem dados falt
 
 
 # 2. Hipóteses de Negócio
-O objetivo deste projeto é explorar uma base de dados não tratada em busca de insights que gerem valor para o negócio. Temos um dataset que contém preços de venda de casas em King County, em Washington, onde cada imóvel diversas características, como numero de quartos, área da sala de estar, se possui ou não vista para o mar/lago, etc. Partimos do cenário hipotético de uma empresa que compra e revende imóveis e vamos utilizar os dados para maximizar o retorno para a empresa. Como temos um histórico dos imóveis e dos preços pelos quais eles foram vendidos, podemos estudar os dados e tentar entender o quanto  as características de um imóvel (tamanho, localização, vista para o mar, etc) influenciam no preço final de venda, ou seja, no lucro da empresa que tem a compra e venda de imóveis como o core do negócio
+Partimos de uma base de dados que contém preços de venda de casas em King County, em Washington. Cada imóvel possui diversas características, como numero de quartos, área da sala de estar, se possui ou não vista para o mar/lago, etc. A partir desse histórico podemos estudar os dados e tentar entender o quanto  as características de um imóvel (tamanho, localização, vista para o mar, etc) influenciam no preço final de venda, ou seja, no lucro da empresa que tem a compra e venda de imóveis como o core do negócio. Seguem algumas hipóteses iniciais:
 
-Casas com garagens são mais caras? Porque?
 Casas com muitos quartos são mais caras? Porque? A partir de quantos quartos o preço aumenta? Qual o incremento de preço por cada quarto adicionado?
 As casas mais caras estão no centro? Qual a região? Existe alguma coisa na região que tem correlação com valor de venda da casa? Shoppings? Montanhas? Pessoas Famosas?
 Quais seriam os melhores negócios? Qual tipo de casa daria mais lucro? Quais casas são?
-comparação dos preços de casas semelhantes ao longo do tempo
-comparação das mesmas casas vendidas mais de uma vez
-Classificação do padrão das casas conforme o preço
-Criação de um mapa interativo com a localização das casas identificadas por faixa de preço, para facilitar a consulta 
 Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
 Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
 Casas com preço abaixo da média e condição boa
 A House Rocket deveria fazer uma reforma para aumentar o preço da venda? Quais seriam as sugestões de mudanças? Qual o incremento no preço dado por cada opção de reforma?
 
+comparação dos preços de casas semelhantes ao longo do tempo
+comparação das mesmas casas vendidas mais de uma vez
+Criação de um mapa interativo com a localização das casas identificadas por faixa de preço, para facilitar a consulta 
+
 
 # 3. Estratégia da Solução
-
-Identifique a causa raíz.
-Colete os dados ( Os dados estão no link acima )
-Aplique uma limpeza nos dados.
-Entenda as variáveis disponíveis, possíveis valores faltantes, faça uma estatística descritiva para entender as características dos dados.
-Levante Hipóteses sobre o Comportamento do Negócio.
-Faça uma ótima Análise Exploratória de Dados.
-Quais hipóteses são falsas e quais são verdadeiras?
-Quais as correlações entre as variáveis e a variável resposta?
-Escreve os Insights que você encontro.
-7. Escreve possíveis soluções para o problema do CEO.
-
 
 **Step 01. Data Description:**
 
