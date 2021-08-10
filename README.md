@@ -64,6 +64,8 @@ Criação de um mapa interativo com a localização das casas identificadas por 
 A base de dados original possui 21613 registros de transações com 21 atributos por imóvel. Foram identificados 353 registros repetidos. Podem se tratar de imóveis vendidos mais de uma vez durante o período, se possuírem datas diferentes. Caso possuam a mesma data, serão removidos
 
 **Step 02. Feature Engineering:**
+area - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
+price_area - Preço/área - para tornar a comaração justa, deve-se levar em consideração sempre o preço por área
 
 **Step 03. Data Filtering:**
 
