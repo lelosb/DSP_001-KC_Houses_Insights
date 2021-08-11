@@ -31,7 +31,6 @@ preços
 média de preços por idade de imóveis
 Tem que levar em consideração a coluna condition
 
-
 Ideias para o meu projeto
 as funções de mapa podem ser encapsuladas
 Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior area, o maior preço por médio quadrado, etc
