@@ -69,9 +69,9 @@ price_area - Preço/área - para tornar a comaração justa, deve-se levar em co
 
 **Step 03. Data Filtering:**
 Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados)
-Casas com número de banheiros igual a 0 foram excluídas (10 imóveis, menos de 0,05% da base de dados)
+Casas com número de banheiros igual a 0 foram excluídas (3 imóveis, menos de 0,02% da base de dados)
 
-Alguns imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los
+Sete imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los
 
 **Step 04. Exploratory Data Analysis:**
 
