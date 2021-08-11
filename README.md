@@ -68,6 +68,10 @@ area - alguns imóveis possuem área construída maior que a área do terreno. P
 price_area - Preço/área - para tornar a comaração justa, deve-se levar em consideração sempre o preço por área
 
 **Step 03. Data Filtering:**
+Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados)
+Casas com número de banheiros igual a 0 foram excluídas (10 imóveis, menos de 0,05% da base de dados)
+
+Alguns imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los
 
 **Step 04. Exploratory Data Analysis:**
 
