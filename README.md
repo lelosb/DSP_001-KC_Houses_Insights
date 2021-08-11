@@ -65,6 +65,7 @@ A base de dados original possui 21613 registros de transações com 21 atributos
 **Step 02. Feature Engineering:**
 area - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
 price_area - Preço/área - para tornar a comaração justa, deve-se levar em consideração sempre o preço por área
+price_zipcode - Preço/área/zipcode - preço para comparação entre os imóveis
 
 **Step 03. Data Filtering:**
 Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados)
