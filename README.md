@@ -36,6 +36,7 @@ as funções de mapa podem ser encapsuladas
 Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior area, o maior preço por médio quadrado, etc
 Mapa de densidade de imóveis
 No streamlit colocar graficos de evolução no tempo
+No streamlit colorir por preço do cep
 O primeiro passo é carregar a base de dados e verificar o se existem dados faltantes. Nessa caso, não temos. Antes de qualquer operação, verificar os tipos dos dados
 
 
@@ -65,7 +66,8 @@ A base de dados original possui 21613 registros de transações com 21 atributos
 **Step 02. Feature Engineering:**
 area - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
 price_area - Preço/área - para tornar a comaração justa, deve-se levar em consideração sempre o preço por área
-price_zipcode - Preço/área/zipcode - preço para comparação entre os imóveis
+zipcode_price - Preço/área/zipcode - preço para comparação entre os imóveis
+trimester - trimestre do ano no qual ocorreu a transação
 
 **Step 03. Data Filtering:**
 Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados)
@@ -96,7 +98,7 @@ Sete imóveis possuíam as duas características, então poderiam ser imóveis c
 **Hypothesis 03:**
 
 **True/False.**
-
+Não existem casas com condition = 2 abaixo do preço médio, mas se considerarmos um teto de até 10% acima, temos 152 casas para reformar e vender
 
 # 7. Business Results
 
