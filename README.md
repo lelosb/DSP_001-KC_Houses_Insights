@@ -76,6 +76,16 @@ Casas com número de banheiros igual a 0 foram excluídas (3 imóveis, menos de 
 Sete imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los
 
 **Step 04. Exploratory Data Analysis:**
+Análise Univariada
+Como é essa variável? Min., máx., distribuição, range...
+
+Análise Bivariada
+
+Como a variável impacta a resposta? Correlação, validação das hipóteses
+
+Análise Multivariada
+
+Como as variáveis se relacionam?
 
 **Step 05. Data Preparation:**
 
