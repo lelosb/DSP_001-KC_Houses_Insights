@@ -2,7 +2,7 @@
 
 ## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio
 
-#### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹
+#### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹ sobre um desafio do Kaggle²
 
 # 1. O problema de negócio
 
@@ -29,7 +29,6 @@ numero de casas
 tamanho maximo
 preços
 média de preços por idade de imóveis
-Tem que levar em consideração a coluna condition
 
 Ideias para o meu projeto
 as funções de mapa podem ser encapsuladas
@@ -37,6 +36,7 @@ Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior ar
 Mapa de densidade de imóveis
 No streamlit colocar graficos de evolução no tempo
 No streamlit colorir por preço do cep
+
 O primeiro passo é carregar a base de dados e verificar o se existem dados faltantes. Nessa caso, não temos. Antes de qualquer operação, verificar os tipos dos dados
 
 
@@ -108,7 +108,7 @@ Como as variáveis se relacionam?
 **Hypothesis 03:**
 
 **True/False.**
-Não existem casas com condition = 2 abaixo do preço médio, mas se considerarmos um teto de até 10% acima, temos 152 casas para reformar e vender
+
 
 # 7. Business Results
 
