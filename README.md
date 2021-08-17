@@ -2,7 +2,7 @@
 
 ## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio
 
-#### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹
+#### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹ sobre um desafio do Kaggle²
 
 # 1. O problema de negócio
 
@@ -29,14 +29,14 @@ numero de casas
 tamanho maximo
 preços
 média de preços por idade de imóveis
-Tem que levar em consideração a coluna condition
-
 
 Ideias para o meu projeto
 as funções de mapa podem ser encapsuladas
 Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior area, o maior preço por médio quadrado, etc
 Mapa de densidade de imóveis
 No streamlit colocar graficos de evolução no tempo
+No streamlit colorir por preço do cep
+
 O primeiro passo é carregar a base de dados e verificar o se existem dados faltantes. Nessa caso, não temos. Antes de qualquer operação, verificar os tipos dos dados
 
 
@@ -66,6 +66,8 @@ A base de dados original possui 21613 registros de transações com 21 atributos
 **Step 02. Feature Engineering:**
 area - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
 price_area - Preço/área - para tornar a comaração justa, deve-se levar em consideração sempre o preço por área
+zipcode_price - Preço/área/zipcode - preço para comparação entre os imóveis
+trimester - trimestre do ano no qual ocorreu a transação
 
 **Step 03. Data Filtering:**
 Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados)
@@ -74,6 +76,16 @@ Casas com número de banheiros igual a 0 foram excluídas (3 imóveis, menos de 
 Sete imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los
 
 **Step 04. Exploratory Data Analysis:**
+Análise Univariada
+Como é essa variável? Min., máx., distribuição, range...
+
+Análise Bivariada
+
+Como a variável impacta a resposta? Correlação, validação das hipóteses
+
+Análise Multivariada
+
+Como as variáveis se relacionam?
 
 **Step 05. Data Preparation:**
 
