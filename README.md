@@ -53,8 +53,6 @@ Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual
 Casas com preço abaixo da média e condição boa
 A House Rocket deveria fazer uma reforma para aumentar o preço da venda? Quais seriam as sugestões de mudanças? Qual o incremento no preço dado por cada opção de reforma?
 
-comparação dos preços de casas semelhantes ao longo do tempo
-comparação das mesmas casas vendidas mais de uma vez
 Criação de um mapa interativo com a localização das casas identificadas por faixa de preço, para facilitar a consulta 
 
 
@@ -117,6 +115,9 @@ Como as variáveis se relacionam?
 # 9. Lessons Learned
 
 # 10. Next Steps to Improve
+comparação dos preços de casas semelhantes ao longo do tempo
+comparação das mesmas casas vendidas mais de uma vez
+
 
 # LICENSE
 
