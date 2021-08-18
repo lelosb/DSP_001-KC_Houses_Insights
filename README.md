@@ -15,26 +15,26 @@ INSERIR FIGURA DE CAPA
 2) Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
 3) A House Rocket deveria fazer uma reforma para aumentar o preço da venda? 
 
- A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 na região de Seattle.
+Além de responder essas perguntas. o time de analytics tem também que verificar se as hipóteses do time de negócio são verdadeiras ou não.
 
 # 2. Hipóteses de Negócio
 
-Seguem algumas hipóteses iniciais:
+  Seguem algumas hipóteses iniciais levantadas pelo time de negócios:
 
-Casas com muitos quartos são mais caras? Porque? A partir de quantos quartos o preço aumenta? Qual o incremento de preço por cada quarto adicionado?
-As casas mais caras estão no centro? Qual a região? Existe alguma coisa na região que tem correlação com valor de venda da casa? Shoppings? Montanhas? Pessoas Famosas?
-Quais seriam os melhores negócios? Qual tipo de casa daria mais lucro? Quais casas são?
-Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
-Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
-Casas com preço abaixo da média e condição boa
-A House Rocket deveria fazer uma reforma para aumentar o preço da venda? Quais seriam as sugestões de mudanças? Qual o incremento no preço dado por cada opção de reforma?
+1) Casas com vista para o mar são mais caras;
+2) Casas que não foram renovadas são mais baratas;
+3) As casas com vista para o mar possuem um nível de qualidade maior;
+4) Existe uma época do ano na qual mais casas são vendidas;
+ 
+Hipóteses levantadas pelo time de analytics ao longo do projeto:
 
-Criação de um mapa interativo com a localização das casas identificadas por faixa de preço, para facilitar a consulta 
-
+1) Existe um atributo numérico que possui alta correlação com os preços;
+2) Existe um atributo categórico que possui alta correlação com os preços
 
 # 3. Estratégia da Solução
 
 **Step 01. Data Description:**
+A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 na região de Seattle.
 A base de dados original possui 21613 registros de transações com 21 atributos por imóvel. Foram identificados 353 registros repetidos. Podem se tratar de imóveis vendidos mais de uma vez durante o período, se possuírem datas diferentes. Caso possuam a mesma data, serão removidos
 
 Partimos de uma base de dados que contém preços de venda de casas em King County, em Washington. Cada imóvel possui diversas características, como numero de quartos, área da sala de estar, se possui ou não vista para o mar/lago, etc. A partir desse histórico podemos estudar os dados e tentar entender o quanto  as características de um imóvel (tamanho, localização, vista para o mar, etc) influenciam no preço final de venda, ou seja, no lucro da empresa que tem a compra e venda de imóveis como o core do negócio. 
@@ -118,4 +118,4 @@ Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior ar
 Mapa de densidade de imóveis
 No streamlit colocar graficos de evolução no tempo
 No streamlit colorir por preço do cep
-
+Criação de um mapa interativo com a localização das casas identificadas por faixa de preço, para facilitar a consulta 
