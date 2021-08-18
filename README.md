@@ -33,13 +33,17 @@ Hipóteses levantadas pelo time de analytics ao longo do projeto:
 
 # 3. Estratégia da Solução
 
-**Step 01. Data Description:**
-A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 na região de Seattle.
-A base de dados original possui 21613 registros de transações com 21 atributos por imóvel. Foram identificados 353 registros repetidos. Podem se tratar de imóveis vendidos mais de uma vez durante o período, se possuírem datas diferentes. Caso possuam a mesma data, serão removidos
+**Data Description:**
 
-Partimos de uma base de dados que contém preços de venda de casas em King County, em Washington. Cada imóvel possui diversas características, como numero de quartos, área da sala de estar, se possui ou não vista para o mar/lago, etc. A partir desse histórico podemos estudar os dados e tentar entender o quanto  as características de um imóvel (tamanho, localização, vista para o mar, etc) influenciam no preço final de venda, ou seja, no lucro da empresa que tem a compra e venda de imóveis como o core do negócio. 
-**Step 02. Feature Engineering:**
-area - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
+  A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 em King County, em Washington. A base possui 21613 registros de transações com 21 atributos por imóvel. 
+  Observações: 
+  1) Foram identificados 177 registros de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão escolhido foi que os que possuírem datas iguais seriam excluídos.
+
+**Feature Engineering:**
+
+Features derivadas para apoio à análise:
+
+***area*** - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
 price_area - Preço/área - para tornar a comaração justa, deve-se levar em consideração sempre o preço por área
 zipcode_price - Preço/área/zipcode - preço para comparação entre os imóveis
 trimester - trimestre do ano no qual ocorreu a transação
