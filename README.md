@@ -1,49 +1,25 @@
 # KC Houses Insights
 
+INSERIR FIGURA DE CAPA
+
 ## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio
 
-#### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹ sobre um desafio do Kaggle²
+#### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹ sobre um desafio do Kaggle².
 
 # 1. O problema de negócio
 
-Antes de começar o projeto, devemos contextualizar e entender como o negócio funciona e quais as respostas que procuramos. A House Rocket (empresa fictícia) é uma startup que tem como modelo de negócio a compra e a venda de imóveis baseando suas decisões na análise de dados.
+  A House Rocket (empresa fictícia) é uma startup que tem como modelo de negócio a compra e a venda de imóveis baseando suas decisões na análise de dados. Como membros da equipe de dados da empresa, devemos suportar as decisões das lideranças ajudando a encontrar as melhores oportunidades de negócio no mercado de imóveis, maximizando assim a receita da empresa.
+  A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita. Entretanto, os imóveis disponíveis possuem muitos atributos que podem influenciar nos preços e na atratividade dos mesmos. Dessa forma, nosso como Data Scientists é responder as seguinte perguntas:
 
-Como membros da equipe de dados da empresa, devemos suportar as decisões das lideranças ajudando a encontrar as melhores oportunidades de negócio no mercado de imóveis, maximizando a receita encontrando as melhores oportunidades.
+1) Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
+2) Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
+3) A House Rocket deveria fazer uma reforma para aumentar o preço da venda? 
 
-A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita.
-
-Entretanto, as casas possuem muitos atributos que as tornam mais ou menos atrativas aos compradores e vendedores e a localização e o período do ano também podem influenciar os preços.
-
-Portanto, seu trabalho como Data Scientist é responder as seguinte perguntas:
-
-Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
-Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
-A House Rocket deveria fazer uma reforma para aumentar o preço da venda? Quais seriam as sugestões de mudanças? Qual o incremento no preço dado por cada opção de reforma?
-
-Esse conjunto de dados contém casas vendidas entre Maio de 2014 e Maio de 2015. Você usará esses dados para desenvolver sua solução.
-
-Coisas para inserir
-Tabela dos dados puros
-Tabela genérica
-numero de casas
-tamanho maximo
-preços
-média de preços por idade de imóveis
-
-Ideias para o meu projeto
-as funções de mapa podem ser encapsuladas
-Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior area, o maior preço por médio quadrado, etc
-Mapa de densidade de imóveis
-No streamlit colocar graficos de evolução no tempo
-No streamlit colorir por preço do cep
-
-O primeiro passo é carregar a base de dados e verificar o se existem dados faltantes. Nessa caso, não temos. Antes de qualquer operação, verificar os tipos dos dados
-
-
-
+ A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 na região de Seattle.
 
 # 2. Hipóteses de Negócio
-Partimos de uma base de dados que contém preços de venda de casas em King County, em Washington. Cada imóvel possui diversas características, como numero de quartos, área da sala de estar, se possui ou não vista para o mar/lago, etc. A partir desse histórico podemos estudar os dados e tentar entender o quanto  as características de um imóvel (tamanho, localização, vista para o mar, etc) influenciam no preço final de venda, ou seja, no lucro da empresa que tem a compra e venda de imóveis como o core do negócio. Seguem algumas hipóteses iniciais:
+
+Seguem algumas hipóteses iniciais:
 
 Casas com muitos quartos são mais caras? Porque? A partir de quantos quartos o preço aumenta? Qual o incremento de preço por cada quarto adicionado?
 As casas mais caras estão no centro? Qual a região? Existe alguma coisa na região que tem correlação com valor de venda da casa? Shoppings? Montanhas? Pessoas Famosas?
@@ -61,6 +37,7 @@ Criação de um mapa interativo com a localização das casas identificadas por 
 **Step 01. Data Description:**
 A base de dados original possui 21613 registros de transações com 21 atributos por imóvel. Foram identificados 353 registros repetidos. Podem se tratar de imóveis vendidos mais de uma vez durante o período, se possuírem datas diferentes. Caso possuam a mesma data, serão removidos
 
+Partimos de uma base de dados que contém preços de venda de casas em King County, em Washington. Cada imóvel possui diversas características, como numero de quartos, área da sala de estar, se possui ou não vista para o mar/lago, etc. A partir desse histórico podemos estudar os dados e tentar entender o quanto  as características de um imóvel (tamanho, localização, vista para o mar, etc) influenciam no preço final de venda, ou seja, no lucro da empresa que tem a compra e venda de imóveis como o core do negócio. 
 **Step 02. Feature Engineering:**
 area - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
 price_area - Preço/área - para tornar a comaração justa, deve-se levar em consideração sempre o preço por área
@@ -126,3 +103,19 @@ comparação das mesmas casas vendidas mais de uma vez
 2) Desafio no Kaggle: https://www.kaggle.com/harlfoxem/housesalesprediction
 
 # All Rights Reserved - Comunidade DS 2021
+
+Coisas para inserir
+Tabela dos dados puros
+Tabela genérica
+numero de casas
+tamanho maximo
+preços
+média de preços por idade de imóveis
+
+Ideias para o meu projeto
+as funções de mapa podem ser encapsuladas
+Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior area, o maior preço por médio quadrado, etc
+Mapa de densidade de imóveis
+No streamlit colocar graficos de evolução no tempo
+No streamlit colorir por preço do cep
+
