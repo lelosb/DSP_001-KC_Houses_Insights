@@ -23,13 +23,9 @@ Além de responder essas perguntas. o time de analytics tem também que verifica
 
 1) Casas com vista para o mar são mais caras;
 2) Casas que não foram renovadas são mais baratas;
-3) As casas com vista para o mar possuem um nível de qualidade maior;
-4) Existe uma época do ano na qual mais casas são vendidas;
- 
-Hipóteses levantadas pelo time de analytics ao longo do projeto:
-
-1) Existe um atributo numérico além da área e localização que possui alta correlação com os preços;
-2) Existe um atributo categórico que possui alta correlação com os preços;
+3) Existe uma época do ano na qual mais casas são vendidas;
+4) Existe um atributo numérico além da área e localização que possui alta correlação com os preços;
+5) Existe um atributo categórico que possui alta correlação com os preços;
 
 # 3. Estratégia da Solução
 
@@ -81,23 +77,51 @@ Análise Multivariada
 - Foi identificado também uma grande variaçã de preço da condição 2 para 3 e da quatro para 5
 - A maior quantidade de transações ocorreu no segundo trimestre do ano, enquanto a menor quantidade ocorreu no primeiro trimestre
 
-**Step 09. Convert Model Performance to Business Values:**
+
+**Hipótese 01: Imóveis com vista para o mar são mais caros**
+
+**Verdadeira**
+Casas com vista para o mar/água são aproximadamente 40% mais caras do que as casas que não têm. A hipótese se verifica mesmo quando se compara casas na mesma localidade
+
+**Hipótese 2: Casas que não foram renovadas são mais baratas**
+
+**Verdadeira**
+Casas que não foram renovadas são aproximadamente 23% mais baratas
+
+**Hipótese 3: Existe uma época no ano em que mais casas são vendidas**
+
+**Verdadeira**
+
+A maioria das casas foi negociada no segundo trimestre (31,58%), enquanto o trimestre com menos negociações foi o primeiro (18,98%)
+
+**Hipótese 4: Existe um atributo categórico principal responsável pelo preço das casas**
+
+**Verdadeira**
+
+**Hipótese 5: Existe um atributo numérico principal responsável pelo preço das casas**
+
+**Verdadeira**
+Conforme o esperado, as características que mais influenciam o preço são a área e a localização. Para além do óbvio, a característica com maior correlação com o preço final é o número de quartos, que no final é ligado a area do imóvel. Para cada quarto adicionado, há um aumento de aproximadamente 118% no preço médio do imóvel.
+
+
+INSERIR FIGURA DOS QUARTOSxPREÇO
+
+*Data Insights*
+
+Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
+
+
+**Casas com preços/área abaixo da média da região podem ser um bom negócio para compra e venda**
+
+Foram identificadas 13097 casas que atendem essas condições. 
+
+**Casas com preços/área abaixo da média da região e com condição igual a 2 e 4 podem ser bons negócios para compra, reforma e venda**
+
+sas que atendem essas condições. 
+
+
 
 **Step 10. Deploy Modelo to Production:**
-
-# 4. Top 3 Data Insights
-
-**Hypothesis 01:**
-
-**True/False.**
-
-**Hypothesis 02:**
-
-**True/False.**
-
-**Hypothesis 03:**
-
-**True/False.**
 
 
 # 7. Business Results
