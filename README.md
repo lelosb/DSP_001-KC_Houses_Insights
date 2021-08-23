@@ -9,7 +9,7 @@ INSERIR FIGURA DE CAPA
 # 1. O problema de negócio
 
   A House Rocket (empresa fictícia) é uma startup que tem como modelo de negócio a compra e a venda de imóveis baseando suas decisões na análise de dados. Como membros da equipe de dados da empresa, devemos suportar as decisões das lideranças ajudando a encontrar as melhores oportunidades de negócio no mercado de imóveis, maximizando assim a receita da empresa.
-  A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita. Entretanto, os imóveis disponíveis possuem muitos atributos que podem influenciar nos preços e na atratividade dos mesmos. Dessa forma, nosso como Data Scientists é responder as seguinte perguntas:
+  A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita. Entretanto, os imóveis disponíveis possuem muitos atributos que podem influenciar nos preços e na atratividade dos mesmos. Dessa forma, nosso desafio como Data Scientists é responder as seguinte perguntas:
 
 1) Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
 2) Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
@@ -28,8 +28,8 @@ Além de responder essas perguntas. o time de analytics tem também que verifica
  
 Hipóteses levantadas pelo time de analytics ao longo do projeto:
 
-1) Existe um atributo numérico que possui alta correlação com os preços;
-2) Existe um atributo categórico que possui alta correlação com os preços
+1) Existe um atributo numérico além da área e localização que possui alta correlação com os preços;
+2) Existe um atributo categórico que possui alta correlação com os preços;
 
 # 3. Estratégia da Solução
 
@@ -38,8 +38,9 @@ INSERIR FLUXOGRAMA DA SOLUÇÃO
 **Data Description:**
 
   A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 em King County, em Washington. A base possui 21613 registros de transações com 21 atributos por imóvel. 
+  
   Observações: 
-  1) Foram identificados 177 registros de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão escolhido foi que os que possuírem datas iguais seriam excluídos.
+  1) Foram identificados 177 registros de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuírem datas iguais seriam excluídos.
 
 **Feature Engineering:**
 
@@ -64,7 +65,11 @@ Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram 
 **Exploratory Data Analysis:**
 
 Análise Univariada
-Como é essa variável? Min., máx., distribuição, range...
+COLOCAR A TABELA DO NOTEBOOK
+
+ - Foi identificada uma variação anormal nos preços/área, com o mínimo chegando proximo a U$0,16/sqft. De acordo com uma breve pesquisa³, o valor médio nos EUA nos anos de 2014/2015 seria algo por volta de 97,25 a 100. Entretanto, dada a quantidade de imoveis com preços abaixo deste valor, não poderiam ser tratados como outliers. Na média se trata de casas antigas que não foram renovadas, média para baixa graduação. 
+ -INSERIR A TABELA MEDIA
+ Como se trata de um projeto de insights, deciciu-se por manter a base assim. Nos próximos passos, caso sejam adotados modelos, isso provavelmente afetaria o resultado final
 
 Análise Bivariada
 
@@ -72,11 +77,9 @@ Como a variável impacta a resposta? Correlação, validação das hipóteses
 
 Análise Multivariada
 
-Como as variáveis se relacionam?
-
-**Step 05. Data Preparation:**
-
-**Step 06. Feature Selection:**
+- Foi identificada uma grande varição de preço nas casas do  grade 7 para 8 e 12 para 13
+- Foi identificado também uma grande variaçã de preço da condição 2 para 3 e da quatro para 5
+- A maior quantidade de transações ocorreu no segundo trimestre do ano, enquanto a menor quantidade ocorreu no primeiro trimestre
 
 **Step 09. Convert Model Performance to Business Values:**
 
@@ -113,6 +116,7 @@ comparação das mesmas casas vendidas mais de uma vez
 # Referências
 1) Comunidade DS: https://sejaumdatascientist.com/
 2) Desafio no Kaggle: https://www.kaggle.com/harlfoxem/housesalesprediction
+3) https://www.statista.com/statistics/682549/average-price-per-square-foot-in-new-single-family-houses-usa/
 
 # All Rights Reserved - Comunidade DS 2021
 
