@@ -1,26 +1,148 @@
 # KC Houses Insights
 
+INSERIR FIGURA DE CAPA
+
 ## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio
 
-#### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹ sobre um desafio do Kaggle²
+#### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹ sobre um desafio do Kaggle².
 
 # 1. O problema de negócio
 
-Antes de começar o projeto, devemos contextualizar e entender como o negócio funciona e quais as respostas que procuramos. A House Rocket (empresa fictícia) é uma startup que tem como modelo de negócio a compra e a venda de imóveis baseando suas decisões na análise de dados.
+  A House Rocket (empresa fictícia) é uma startup que tem como modelo de negócio a compra e a venda de imóveis baseando suas decisões na análise de dados. Como membros da equipe de dados da empresa, devemos suportar as decisões das lideranças ajudando a encontrar as melhores oportunidades de negócio no mercado de imóveis, maximizando assim a receita da empresa.
+  A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita. Entretanto, os imóveis disponíveis possuem muitos atributos que podem influenciar nos preços e na atratividade dos mesmos. Dessa forma, nosso desafio como Data Scientists é responder as seguinte perguntas:
 
-Como membros da equipe de dados da empresa, devemos suportar as decisões das lideranças ajudando a encontrar as melhores oportunidades de negócio no mercado de imóveis, maximizando a receita encontrando as melhores oportunidades.
+1) Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
+2) Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
+3) A House Rocket deveria fazer uma reforma para aumentar o preço da venda? 
 
-A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita.
+Além de responder essas perguntas. o time de analytics tem também que verificar se as hipóteses do time de negócio são verdadeiras ou não.
 
-Entretanto, as casas possuem muitos atributos que as tornam mais ou menos atrativas aos compradores e vendedores e a localização e o período do ano também podem influenciar os preços.
+# 2. Hipóteses de Negócio
 
-Portanto, seu trabalho como Data Scientist é responder as seguinte perguntas:
+  Seguem algumas hipóteses iniciais levantadas pelo time de negócios:
 
-Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
-Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
-A House Rocket deveria fazer uma reforma para aumentar o preço da venda? Quais seriam as sugestões de mudanças? Qual o incremento no preço dado por cada opção de reforma?
+1) Casas com vista para o mar são mais caras;
+2) Casas que não foram renovadas são mais baratas;
+3) Existe uma época do ano na qual mais casas são vendidas;
+4) Existe um atributo numérico além da área e localização que possui alta correlação com os preços;
+5) Existe um atributo categórico que possui alta correlação com os preços;
 
-Esse conjunto de dados contém casas vendidas entre Maio de 2014 e Maio de 2015. Você usará esses dados para desenvolver sua solução.
+# 3. Estratégia da Solução
+
+INSERIR FLUXOGRAMA DA SOLUÇÃO
+
+**Data Description:**
+
+  A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 em King County, em Washington. A base possui 21613 registros de transações com 21 atributos por imóvel. 
+  
+  Observações: 
+  1) Foram identificados 177 registros de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuírem datas iguais seriam excluídos.
+
+**Feature Engineering:**
+
+Features derivadas para apoio à análise:
+
+***area*** - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
+***price_area*** - média de preço por área. Para tornar a comparação justa, deve-se levar em consideração sempre o preço por área
+***zipcode_price*** - Preço médio por área por zipcode - preço para comparação entre os imóveis da mesma região
+***trimester*** -  trimestre do ano no qual ocorreu a transação
+
+**Data Filtering:**
+
+Foram removidos por irrelevância ou redundancia:
+ - 'sqft_living15', 'sqft_lot15', 'sqft_above' e 'sqft_basement';
+ - 'sqft_living', 'sqft_lot' (substituídos pela 'area');
+ - Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados);
+ - Casas com número de banheiros igual a 0 foram excluídas (3 imóveis, menos de 0,02% da base de dados);
+ - Sete imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los.
+ 
+Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram mantidos.
+
+**Exploratory Data Analysis:**
+
+Análise Univariada
+COLOCAR A TABELA DO NOTEBOOK
+
+ - Foi identificada uma variação anormal nos preços/área, com o mínimo chegando proximo a U$0,16/sqft. De acordo com uma breve pesquisa³, o valor médio nos EUA nos anos de 2014/2015 seria algo por volta de 97,25 a 100. Entretanto, dada a quantidade de imoveis com preços abaixo deste valor, não poderiam ser tratados como outliers. Na média se trata de casas antigas que não foram renovadas, média para baixa graduação. 
+ -INSERIR A TABELA MEDIA
+ Como se trata de um projeto de insights, deciciu-se por manter a base assim. Nos próximos passos, caso sejam adotados modelos, isso provavelmente afetaria o resultado final
+
+Análise Bivariada
+
+Como a variável impacta a resposta? Correlação, validação das hipóteses
+
+Análise Multivariada
+
+- Foi identificada uma grande varição de preço nas casas do  grade 7 para 8 e 12 para 13
+- Foi identificado também uma grande variaçã de preço da condição 2 para 3 e da quatro para 5
+- A maior quantidade de transações ocorreu no segundo trimestre do ano, enquanto a menor quantidade ocorreu no primeiro trimestre
+
+
+**Hipótese 01: Imóveis com vista para o mar são mais caros**
+
+**Verdadeira**
+Casas com vista para o mar/água são aproximadamente 40% mais caras do que as casas que não têm. A hipótese se verifica mesmo quando se compara casas na mesma localidade
+
+**Hipótese 2: Casas que não foram renovadas são mais baratas**
+
+**Verdadeira**
+Casas que não foram renovadas são aproximadamente 23% mais baratas
+
+**Hipótese 3: Existe uma época no ano em que mais casas são vendidas**
+
+**Verdadeira**
+
+A maioria das casas foi negociada no segundo trimestre (31,58%), enquanto o trimestre com menos negociações foi o primeiro (18,98%)
+
+**Hipótese 4: Existe um atributo categórico principal responsável pelo preço das casas**
+
+**Verdadeira**
+
+**Hipótese 5: Existe um atributo numérico principal responsável pelo preço das casas**
+
+**Verdadeira**
+Conforme o esperado, as características que mais influenciam o preço são a área e a localização. Para além do óbvio, a característica com maior correlação com o preço final é o número de quartos, que no final é ligado a area do imóvel. Para cada quarto adicionado, há um aumento de aproximadamente 118% no preço médio do imóvel.
+
+
+INSERIR FIGURA DOS QUARTOSxPREÇO
+
+*Data Insights*
+
+Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
+
+
+**Casas com preços/área abaixo da média da região podem ser um bom negócio para compra e venda**
+
+Foram identificadas 13097 casas que atendem essas condições. 
+
+**Casas com preços/área abaixo da média da região e com condição igual a 2 e 4 podem ser bons negócios para compra, reforma e venda**
+
+sas que atendem essas condições. 
+
+
+
+**Step 10. Deploy Modelo to Production:**
+
+
+# 7. Business Results
+
+# 8. Conclusions
+
+# 9. Lessons Learned
+
+# 10. Next Steps to Improve
+comparação dos preços de casas semelhantes ao longo do tempo
+comparação das mesmas casas vendidas mais de uma vez
+
+
+# LICENSE
+
+# Referências
+1) Comunidade DS: https://sejaumdatascientist.com/
+2) Desafio no Kaggle: https://www.kaggle.com/harlfoxem/housesalesprediction
+3) https://www.statista.com/statistics/682549/average-price-per-square-foot-in-new-single-family-houses-usa/
+
+# All Rights Reserved - Comunidade DS 2021
 
 Coisas para inserir
 Tabela dos dados puros
@@ -36,92 +158,4 @@ Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior ar
 Mapa de densidade de imóveis
 No streamlit colocar graficos de evolução no tempo
 No streamlit colorir por preço do cep
-
-O primeiro passo é carregar a base de dados e verificar o se existem dados faltantes. Nessa caso, não temos. Antes de qualquer operação, verificar os tipos dos dados
-
-
-
-
-# 2. Hipóteses de Negócio
-Partimos de uma base de dados que contém preços de venda de casas em King County, em Washington. Cada imóvel possui diversas características, como numero de quartos, área da sala de estar, se possui ou não vista para o mar/lago, etc. A partir desse histórico podemos estudar os dados e tentar entender o quanto  as características de um imóvel (tamanho, localização, vista para o mar, etc) influenciam no preço final de venda, ou seja, no lucro da empresa que tem a compra e venda de imóveis como o core do negócio. Seguem algumas hipóteses iniciais:
-
-Casas com muitos quartos são mais caras? Porque? A partir de quantos quartos o preço aumenta? Qual o incremento de preço por cada quarto adicionado?
-As casas mais caras estão no centro? Qual a região? Existe alguma coisa na região que tem correlação com valor de venda da casa? Shoppings? Montanhas? Pessoas Famosas?
-Quais seriam os melhores negócios? Qual tipo de casa daria mais lucro? Quais casas são?
-Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
-Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
-Casas com preço abaixo da média e condição boa
-A House Rocket deveria fazer uma reforma para aumentar o preço da venda? Quais seriam as sugestões de mudanças? Qual o incremento no preço dado por cada opção de reforma?
-
-comparação dos preços de casas semelhantes ao longo do tempo
-comparação das mesmas casas vendidas mais de uma vez
 Criação de um mapa interativo com a localização das casas identificadas por faixa de preço, para facilitar a consulta 
-
-
-# 3. Estratégia da Solução
-
-**Step 01. Data Description:**
-A base de dados original possui 21613 registros de transações com 21 atributos por imóvel. Foram identificados 353 registros repetidos. Podem se tratar de imóveis vendidos mais de uma vez durante o período, se possuírem datas diferentes. Caso possuam a mesma data, serão removidos
-
-**Step 02. Feature Engineering:**
-area - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
-price_area - Preço/área - para tornar a comaração justa, deve-se levar em consideração sempre o preço por área
-zipcode_price - Preço/área/zipcode - preço para comparação entre os imóveis
-trimester - trimestre do ano no qual ocorreu a transação
-
-**Step 03. Data Filtering:**
-Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados)
-Casas com número de banheiros igual a 0 foram excluídas (3 imóveis, menos de 0,02% da base de dados)
-
-Sete imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los
-
-**Step 04. Exploratory Data Analysis:**
-Análise Univariada
-Como é essa variável? Min., máx., distribuição, range...
-
-Análise Bivariada
-
-Como a variável impacta a resposta? Correlação, validação das hipóteses
-
-Análise Multivariada
-
-Como as variáveis se relacionam?
-
-**Step 05. Data Preparation:**
-
-**Step 06. Feature Selection:**
-
-**Step 09. Convert Model Performance to Business Values:**
-
-**Step 10. Deploy Modelo to Production:**
-
-# 4. Top 3 Data Insights
-
-**Hypothesis 01:**
-
-**True/False.**
-
-**Hypothesis 02:**
-
-**True/False.**
-
-**Hypothesis 03:**
-
-**True/False.**
-
-
-# 7. Business Results
-
-# 8. Conclusions
-
-# 9. Lessons Learned
-
-# 10. Next Steps to Improve
-
-# LICENSE
-
-# Referências
-1) Comunidade DS: https://sejaumdatascientist.com/
-2) Desafio no Kaggle: https://www.kaggle.com/harlfoxem/housesalesprediction
-
-# All Rights Reserved - Comunidade DS 2021
