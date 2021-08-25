@@ -1,6 +1,6 @@
 # KC Houses Insights
 
-INSERIR FIGURA DE CAPA
+![KingCount]()
 
 ## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio
 
@@ -61,21 +61,21 @@ Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram 
 **Exploratory Data Analysis:**
 
 Análise Univariada
+
 COLOCAR A TABELA DO NOTEBOOK
 
  - Foi identificada uma variação anormal nos preços/área, com o mínimo chegando proximo a U$0,16/sqft. De acordo com uma breve pesquisa³, o valor médio nos EUA nos anos de 2014/2015 seria algo por volta de 97,25 a 100. Entretanto, dada a quantidade de imoveis com preços abaixo deste valor, não poderiam ser tratados como outliers. Na média se trata de casas antigas que não foram renovadas, média para baixa graduação. 
+ 
  -INSERIR A TABELA MEDIA
  Como se trata de um projeto de insights, deciciu-se por manter a base assim. Nos próximos passos, caso sejam adotados modelos, isso provavelmente afetaria o resultado final
 
 Análise Bivariada
 
-Como a variável impacta a resposta? Correlação, validação das hipóteses
+- Foi identificada uma grande variação de preço nas casas do  grade 7 para 8 e 12 para 13
+- Foi identificado também uma grande variação de preço da condição 2 para 3 e da quatro para 5
+- A maior quantidade de transações ocorreu no segundo trimestre do ano, enquanto a menor quantidade ocorreu no primeiro trimestre
 
 Análise Multivariada
-
-- Foi identificada uma grande varição de preço nas casas do  grade 7 para 8 e 12 para 13
-- Foi identificado também uma grande variaçã de preço da condição 2 para 3 e da quatro para 5
-- A maior quantidade de transações ocorreu no segundo trimestre do ano, enquanto a menor quantidade ocorreu no primeiro trimestre
 
 
 **Hipótese 01: Imóveis com vista para o mar são mais caros**
@@ -92,7 +92,8 @@ Casas que não foram renovadas são aproximadamente 23% mais baratas
 
 **Verdadeira**
 
-A maioria das casas foi negociada no segundo trimestre (31,58%), enquanto o trimestre com menos negociações foi o primeiro (18,98%)
+A maioria das casas foi negociada no segundo trimestre (31,58%), enquanto o trimestre com menos negociações foi o primeiro (18,98%). 
+![](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/transations_per__yr.png)
 
 **Hipótese 4: Existe um atributo categórico principal responsável pelo preço das casas**
 
@@ -111,6 +112,10 @@ INSERIR FIGURA DOS QUARTOSxPREÇO
 Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
 
 
+**Períodos para as transações**
+
+O melhor período para compra de imóveis é no primeiro trimestre do ano, pois a procura é menor, o que permite negociações mais agressivas. Enquanto o melhor período para a venda é no segundo trimestre, quanto o mercado está mais aquecido.
+
 **Casas com preços/área abaixo da média da região podem ser um bom negócio para compra e venda**
 
 Foram identificadas 13097 casas que atendem essas condições. 
@@ -125,6 +130,7 @@ sas que atendem essas condições.
 
 
 # 7. Business Results
+
 
 # 8. Conclusions
 
@@ -145,12 +151,6 @@ comparação das mesmas casas vendidas mais de uma vez
 # All Rights Reserved - Comunidade DS 2021
 
 Coisas para inserir
-Tabela dos dados puros
-Tabela genérica
-numero de casas
-tamanho maximo
-preços
-média de preços por idade de imóveis
 
 Ideias para o meu projeto
 as funções de mapa podem ser encapsuladas
