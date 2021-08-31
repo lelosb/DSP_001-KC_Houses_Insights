@@ -1,6 +1,6 @@
 # KC Houses Insights
 
-![KingCount]()
+![KingCount](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/king_count.jpeg)
 
 ## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio
 
@@ -62,7 +62,7 @@ Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram 
 
 Análise Univariada
 
-COLOCAR A TABELA DO NOTEBOOK
+![metrics](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/metrics.png)
 
  - Foi identificada uma variação anormal nos preços/área, com o mínimo chegando proximo a U$0,16/sqft. De acordo com uma breve pesquisa³, o valor médio nos EUA nos anos de 2014/2015 seria algo por volta de 97,25 a 100. Entretanto, dada a quantidade de imoveis com preços abaixo deste valor, não poderiam ser tratados como outliers. Na média se trata de casas antigas que não foram renovadas, média para baixa graduação. 
  
