@@ -29,9 +29,10 @@
 
 INSERIR FLUXOGRAMA DA SOLUÇÃO
 
-**Data Description:**
+## Data Description:
 
   A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 em King County, em Washington. A base possui 21613 registros de transações com 21 atributos por imóvel. Na imagem abaixo temos os primeiros 5 registros dos banco de dados:
+  
  ![raw_data](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/raw_data_overview.png)
   
  Os atributos dos imóveis são os seguintes:
@@ -63,19 +64,23 @@ INSERIR FLUXOGRAMA DA SOLUÇÃO
   Observações: 
   1) Foram identificados 177 registros (id's) de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuíssem datas e ids iguais seriam excluídos.
 
-**Feature Engineering:**
+##Feature Engineering:
 
 Features derivadas para apoio à análise:
 
 ***area*** - alguns imóveis possuem área construída maior que a área do terreno e vice-versa. Para os cálculos foram filtradas a maior das áreas por imóvel.
+
   ****Atualização****:Essa feature acabou sendo substituída. Utilizando a maior área entre a área construída ('sqft_living') e a área do terreno ('sqft_lot') surgiram problemas de adequação a realidade. O imóvel mais barato custava absurdos US$ 0,16/sqft, e dada a elevada quantidade de imóveis nessa faixa de valor, não poderiam se tratar de outliers. Uma breve pesquisa na internet³ nos mostrou que o valor correto para os anos de 2014/2015 seria algo entre U$90.00 e U$100.00/sqft. Dessa forma. ao invés de criar uma nova feature optou-se por utlizar a área construida para o cálculo, o que trouxe os valores para valores mais próximos da realidade e praticamente eliminou os outliers.
 
 ***price_area*** - média de preço por área. Para tornar a comparação justa, deve-se levar em consideração sempre o preço por área
+
 ***zipcode_price*** - Preço médio por área por zipcode - preço para comparação entre os imóveis da mesma região
+
 ***location*** - uma "graduação" do zipcode mais barato para o mais caro. Utilizada para identicar a correlação do preço com a localização, transformando o zipcode em uma feature numérica.
+
 ***trimester*** -  trimestre do ano no qual ocorreu a transação
 
-**Data Filtering:**
+##Data Filtering:
 
 Foram removidos por irrelevância ou redundancia:
  - 'sqft_living15', 'sqft_lot15', 'sqft_above', 'sqft_basement' e 'sqft_lot';
@@ -86,9 +91,9 @@ Foram removidos por irrelevância ou redundancia:
  
 Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram mantidos.
 
-**Exploratory Data Analysis:**
+##Exploratory Data Analysis:
 
-***Análise Univariada***
+###Análise Univariada
 
   Métricas após limpeza e organização dos dados:
 
@@ -100,16 +105,18 @@ Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram 
  
  ![price_area_dist](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/price_area_distribution.png)
  
-Análise Bivariada
+###Análise Bivariada
 
 - Foi identificada uma grande variação de preço médio entre casas de 4 para 5;
 - A maior quantidade de transações ocorreu no segundo trimestre do ano, enquanto a menor quantidade ocorreu no primeiro trimestre
 
-Análise Multivariada
+### Análise Multivariada
 
 Pela análise feita, as características com maior influência no preço são mesmo a área e a localização:
 
 ![heatmap](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/corr_heatmap.png)
+
+## Hypothesis Validation
 
 **Hipótese 01: Imóveis com vista para o mar são mais caros**
 
@@ -141,7 +148,7 @@ Conforme é visível no mapa de calor, todas as variáveis têm uma baixa correl
 
   Conforme o esperado, a característica que mais influencia de forma direta no preço são é localização, seguida da área.
   
-*Data Insights*
+##Data Insights
 
 Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
 
@@ -165,36 +172,40 @@ As listas de imóveis que devem ser comprados e respectivas sugestões de preço
 **Casas para serem compradas imediatamente**
 Foram identificados 9354 imóveis com preço abaixo do valor médio da área. A compra e posterior venda desses imóveis pelo preço médio da região trará uma expectativa de lucro bruto de U$ 971108343,18 (devem ser subtraídos os custos do processo de compra/venda)
 
-Casas para serem renovadas e posteriormente vendidas
+**Casas para serem renovadas e posteriormente vendidas**
 
 Foram identificados 2975 imóveis com preço abaixo do valor médio da área e condição igual a 4. A compra, reforma e posterior venda desses imóveis pelo preço médio das casas de padrão 5 trará uma expectativa de lucro bruto de U$ 834411054,54 (devem ser subtraídos os custos da reforma e do processo de compra/venda)
 
 # 8. Conclusions
-![](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
+
+https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html
+
+# 9. Deploy
+
+ O modelo em produção será um aplicativo no Streamlit hospedado no Heroku. Está em fase de conclusão.
+ 
 # 9. Lessons Learned
 
 # 10. Next Steps to Improve
-comparação dos preços de casas semelhantes ao longo do tempo
-comparação das mesmas casas vendidas mais de uma vez
-comparar com o preço médio de casas de condição 5 trouxe alguns valores negativos
 
-* Deploy*
+  Sugestões para melhoria do projeto:
+  - Comparação dos preços de casas semelhantes ao longo do tempo;
+  - Utilizar um algoritmo de clusterização para encontrar grupos de imóveis;
+  - Comparação das mesmas casas vendidas mais de uma vez;
+  - Comparar com o preço médio de casas de condição 5 trouxe alguns valores negativos, isso porque algumas casas de condição 4 possuíam preço/área maior do que a média das casas com condição 5. Para evitar isso pode ser válido comparar as casas por região no próximo ciclo;
+
+
+# Tecnologias utilizadas
 
 # LICENSE
-
+ 
+ Código:
+ - Python (Pandas, Numpy, Seaborn, Geopandas)
+ Produção: 
+  - Heroku
+  - Streamlit
+ 
 # Referências
 1) Comunidade DS: https://sejaumdatascientist.com/
 2) Desafio no Kaggle: https://www.kaggle.com/harlfoxem/housesalesprediction
 3) https://www.statista.com/statistics/682549/average-price-per-square-foot-in-new-single-family-houses-usa/
-
-# All Rights Reserved - Comunidade DS 2021
-
-Coisas para inserir
-
-Ideias para o meu projeto
-as funções de mapa podem ser encapsuladas
-Dá pra fazer uma tabela resumo com tudo. O maior número de quartos, a maior area, o maior preço por médio quadrado, etc
-Mapa de densidade de imóveis
-No streamlit colocar graficos de evolução no tempo
-No streamlit colorir por preço do cep
-Criação de um mapa interativo com a localização das casas identificadas por faixa de preço, para facilitar a consulta 
