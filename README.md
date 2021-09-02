@@ -61,14 +61,16 @@ INSERIR FLUXOGRAMA DA SOLUÇÃO
 |sqft_lot15|	Área em sqft dos terrenos dos 15 vizinhos mais próximos|
   
   Observações: 
-  1) Foram identificados 177 registros de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuíssem datas iguais seriam excluídos.
+  1) Foram identificados 177 registros (id's) de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuíssem datas e ids iguais seriam excluídos.
 
 **Feature Engineering:**
 
 Features derivadas para apoio à análise:
 
-***area*** - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
-Essa feature acabou sendo substituída. Utilizando a maior área entre a área construída ('sqft_living') e a área do terreno ('sqft_lot') surgiram problemas de adequação a realidade. O imóvel mais barato custava U$0,16/sqft. Uma breve pesquisa na internet nos mostrou que o valor correto seria algo entre U$80.00 e U$100.00/sqft. Dessa forma. ao invés de criar uma nova feature optou-se por utlizar a área construida para o cálculo, o que trouxe os valores para valores mais próximos da realidade e eliminou os outliers.
+***area*** - alguns imóveis possuem área construída maior que a área do terreno e vice-versa. Para os cálculos foram filtradas a maior das áreas por imóvel.
+  Essa feature acabou sendo substituída. Utilizando a maior área entre a área construída ('sqft_living') e a área do terreno ('sqft_lot') surgiram problemas de adequação a realidade. O imóvel mais barato custava absurdos U$ 0,16/sqft, e dada a elevada quantidade de imóveis nessa faixa de valor, não poderiam se tratar de outliers. Uma breve pesquisa na internet³ nos mostrou que o valor correto para os anos de 2014/2015 seria algo entre U$90.00 e U$100.00/sqft. Dessa forma. ao invés de criar uma nova feature optou-se por utlizar a área construida para o cálculo, o que trouxe os valores para valores mais próximos da realidade e praticamente eliminou os outliers.
+  
+
 ***price_area*** - média de preço por área. Para tornar a comparação justa, deve-se levar em consideração sempre o preço por área
 ***zipcode_price*** - Preço médio por área por zipcode - preço para comparação entre os imóveis da mesma região
 ***location*** - uma "graduação" do zipcode mais barato para o mais caro. Utilizada para identicar a correlação do preço com a localização, transformando o zipcode em uma feature numérica.
@@ -77,8 +79,8 @@ Essa feature acabou sendo substituída. Utilizando a maior área entre a área c
 **Data Filtering:**
 
 Foram removidos por irrelevância ou redundancia:
- - 'sqft_living15', 'sqft_lot15', 'sqft_above' e 'sqft_basement';
- - 'sqft_living', 'sqft_lot' (substituídos pela 'area');
+ - 'sqft_living15', 'sqft_lot15', 'sqft_above', 'sqft_basement' e 'sqft_lot';
+ - 'sqft_living' foi substituída por 'area');
  - Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados);
  - Casas com número de banheiros igual a 0 foram excluídas (3 imóveis, menos de 0,02% da base de dados);
  - Sete imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los.
@@ -89,21 +91,26 @@ Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram 
 
 Análise Univariada
 
+Métricas após limpeza e organização dos dados:
+
 ![metrics](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/metrics.png)
 
- - Foi identificada uma variação anormal nos preços/área, com o mínimo chegando proximo a U$0,16/sqft. De acordo com uma breve pesquisa³, o valor médio nos EUA nos anos de 2014/2015 seria algo por volta de 97,25 a 100. Entretanto, dada a quantidade de imoveis com preços abaixo deste valor, não poderiam ser tratados como outliers. Na média se trata de casas antigas que não foram renovadas, média para baixa graduação. 
+ - Após a mudança do cálculo de preço/área, os preços do dataset se ajustaram ao valores encontrados na pesquisa.
  
- -INSERIR A TABELA MEDIA
- Como se trata de um projeto de insights, deciciu-se por manter a base assim. Nos próximos passos, caso sejam adotados modelos, isso provavelmente afetaria o resultado final
-
+ Distribuição dos preços/área 
+ 
+ ![price_area_dist](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/price_area_distribution.png)
+ 
 Análise Bivariada
 
-- Foi identificada uma grande variação de preço nas casas do  grade 7 para 8 e 12 para 13
-- Foi identificado também uma grande variação de preço da condição 2 para 3 e da quatro para 5
+- Foi identificada uma grande variação de preço médio entre casas de 4 para 5;
 - A maior quantidade de transações ocorreu no segundo trimestre do ano, enquanto a menor quantidade ocorreu no primeiro trimestre
 
 Análise Multivariada
 
+Pela análise feita, as características com maior influência no preço são mesmo a área e a localização:
+
+![heatmap](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/corr_heatmap.png)
 
 **Hipótese 01: Imóveis com vista para o mar são mais caros**
 
