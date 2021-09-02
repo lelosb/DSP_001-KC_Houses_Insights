@@ -2,24 +2,22 @@
 
 ![KingCount](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/king_count.jpeg)
 
-## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio
+## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio.
 
 #### Este projeto foi feito por Leandro Santos Barbosa, baseado nos estudos do curso de formação de Python da Comunidade DS¹ sobre um desafio do Kaggle².
 
 # 1. O problema de negócio
 
-  A House Rocket (empresa fictícia) é uma startup que tem como modelo de negócio a compra e a venda de imóveis baseando suas decisões na análise de dados. Como membros da equipe de dados da empresa, devemos suportar as decisões das lideranças ajudando a encontrar as melhores oportunidades de negócio no mercado de imóveis, maximizando assim a receita da empresa.
+  A House Rocket (empresa fictícia) é uma startup que tem como modelo de negócio a compra e venda de imóveis baseando suas decisões na análise de dados. Como membros da equipe de dados da empresa, devemos suportar as decisões das lideranças ajudando a encontrar as melhores oportunidades de negócio, maximizando assim a receita da empresa.
   A principal estratégia é comprar boas casas em ótimas localizações com preços baixos e revendê-las posteriormente à preços mais altos. Quanto maior a diferença entre a compra e a venda, maior o lucro da empresa e portanto maior sua receita. Entretanto, os imóveis disponíveis possuem muitos atributos que podem influenciar nos preços e na atratividade dos mesmos. Dessa forma, nosso desafio como Data Scientists é responder as seguinte perguntas:
 
 1) Quais casas o CEO da House Rocket deveria comprar e por qual preço de compra?
 2) Uma vez a casa em posse da empresa, qual o melhor momento para vendê-las e qual seria o preço da venda?
 3) A House Rocket deveria fazer uma reforma para aumentar o preço da venda? 
 
-Além de responder essas perguntas. o time de analytics tem também que verificar se as hipóteses do time de negócio são verdadeiras ou não.
-
 # 2. Hipóteses de Negócio
 
-  Seguem algumas hipóteses iniciais levantadas pelo time de negócios:
+  Além de responder essas perguntas, o time de analytics tem também que verificar se as hipóteses do time de negócio são verdadeiras ou não.  Seguem as hipóteses levantadas pelo time de negócio:
 
 1) Casas com vista para o mar são mais caras;
 2) Casas que não foram renovadas são mais baratas;
@@ -33,18 +31,47 @@ INSERIR FLUXOGRAMA DA SOLUÇÃO
 
 **Data Description:**
 
-  A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 em King County, em Washington. A base possui 21613 registros de transações com 21 atributos por imóvel. 
+  A base de dados disponível para esse problema contém transações imobiliárias realizadas entre Maio de 2014 e Maio de 2015 em King County, em Washington. A base possui 21613 registros de transações com 21 atributos por imóvel. Na imagem abaixo temos os primeiros 5 registros dos banco de dados:
+ ![raw_data](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/raw_data_overview.png)
+  
+ Os atributos dos imóveis são os seguintes:
+ 
+| Atributos	| Significado |
+| ---       |  ---        |
+|id	        | Identificação do imóvel |
+|date|	Data da venda do imóvel|
+|price|	Preço que o imóvel foi negociado |
+|bedrooms|	Número de quartos|
+|bathrooms|	Número de banheiros |
+|sqft_living	| Área em sqft (pés quadrados) do interior dos imóveis|
+|sqft_lot|	Área em sqft do terreno|
+|floors|	Número de andares do imóvel|
+|waterfront|	Atributo que indica se o imóvel possui ou não vista para água (0 = não e 1 = sim)|
+|view|	Um índice de 0 a 4 que indica a qualidade da vista da propriedade (0 = baixa 4 = alta)|
+|condition|	Um índice de 1 a 5 que indica a condição da propriedade (1 = ruim, 5 = ótima|
+|grade|	Um índice de 1 a 13 que indica a construção e o design do edifício (1-3 = baixo, 7 = médio e 11-13 = alta)|
+|sqft_above	|Área em sqft construída acima do nível do solo|
+|sqft_basement|	Área em sqft construída no nível do solo|
+|yr_built	|Ano de construção do imóvel|
+|yr_renovated|	Ano de reforma do imóvel (0 - não reformado) |
+|zipcode	|Um código de identificação da microregião, similar ao CEP brasileiro|
+|lat	|Latitude|
+|long|	Longitude|
+|sqft_livining15|	Área em sqft do espaço interno de habitação dos 15 vizinhos mais próximos|
+|sqft_lot15|	Área em sqft dos terrenos dos 15 vizinhos mais próximos|
   
   Observações: 
-  1) Foram identificados 177 registros de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuírem datas iguais seriam excluídos.
+  1) Foram identificados 177 registros de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuíssem datas iguais seriam excluídos.
 
 **Feature Engineering:**
 
 Features derivadas para apoio à análise:
 
 ***area*** - alguns imóveis possuem área construída maior que a área do terreno. Para os cálculos foram filtradas a maior das áreas por imóvel
+Essa feature acabou sendo substituída. Utilizando a maior área entre a área construída ('sqft_living') e a área do terreno ('sqft_lot') surgiram problemas de adequação a realidade. O imóvel mais barato custava U$0,16/sqft. Uma breve pesquisa na internet nos mostrou que o valor correto seria algo entre U$80.00 e U$100.00/sqft. Dessa forma. ao invés de criar uma nova feature optou-se por utlizar a área construida para o cálculo, o que trouxe os valores para valores mais próximos da realidade e eliminou os outliers.
 ***price_area*** - média de preço por área. Para tornar a comparação justa, deve-se levar em consideração sempre o preço por área
 ***zipcode_price*** - Preço médio por área por zipcode - preço para comparação entre os imóveis da mesma região
+***location*** - uma "graduação" do zipcode mais barato para o mais caro. Utilizada para identicar a correlação do preço com a localização, transformando o zipcode em uma feature numérica.
 ***trimester*** -  trimestre do ano no qual ocorreu a transação
 
 **Data Filtering:**
