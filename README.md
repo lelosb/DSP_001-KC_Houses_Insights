@@ -1,5 +1,9 @@
 # KC Houses Insights
 
+> Status: Colocando em produção ⚠️
+
+## Link do projeto em produção (em breve)
+
 ![KingCount](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/king_count.jpeg)
 
 ## O objetivo deste projeto é explorar uma base de dados de vendas de imóveis para obter insights que gerem valor para o negócio.
@@ -61,16 +65,15 @@ INSERIR FLUXOGRAMA DA SOLUÇÃO
 |sqft_livining15|	Área em sqft do espaço interno de habitação dos 15 vizinhos mais próximos|
 |sqft_lot15|	Área em sqft dos terrenos dos 15 vizinhos mais próximos|
   
-  Observações: 
-  1) Foram identificados 177 registros (id's) de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuíssem datas e ids iguais seriam excluídos.
+  No processo de análise inicial dos dados foram identificados 177 registros (id's) de imóveis repetidos. Não foram removidos inicialmente pela possibilidade de se tratarem de imóveis vendidos mais de uma vez durante o período. O critério de exclusão adotado foi que os que possuíssem datas e ids iguais seriam excluídos.
 
-##Feature Engineering:
+## Feature Engineering:
 
 Features derivadas para apoio à análise:
 
 ***area*** - alguns imóveis possuem área construída maior que a área do terreno e vice-versa. Para os cálculos foram filtradas a maior das áreas por imóvel.
 
-  ****Atualização****:Essa feature acabou sendo substituída. Utilizando a maior área entre a área construída ('sqft_living') e a área do terreno ('sqft_lot') surgiram problemas de adequação a realidade. O imóvel mais barato custava absurdos US$ 0,16/sqft, e dada a elevada quantidade de imóveis nessa faixa de valor, não poderiam se tratar de outliers. Uma breve pesquisa na internet³ nos mostrou que o valor correto para os anos de 2014/2015 seria algo entre U$90.00 e U$100.00/sqft. Dessa forma. ao invés de criar uma nova feature optou-se por utlizar a área construida para o cálculo, o que trouxe os valores para valores mais próximos da realidade e praticamente eliminou os outliers.
+  ****Atualização****: Essa feature acabou sendo substituída. Utilizando a maior área entre a área construída ('sqft_living') e a área do terreno ('sqft_lot') surgiram problemas de adequação a realidade. O imóvel mais barato custava absurdos US$ 0,16/sqft, e dada a elevada quantidade de imóveis nessa faixa de valor, não poderiam se tratar de outliers. Uma breve pesquisa na internet³ nos mostrou que o valor correto para os anos de 2014/2015 seria algo entre U$90.00 e U$100.00/sqft. Dessa forma. ao invés de criar uma nova feature optou-se por utlizar a área construida para o cálculo, o que trouxe os valores para valores mais próximos da realidade e praticamente eliminou os outliers.
 
 ***price_area*** - média de preço por área. Para tornar a comparação justa, deve-se levar em consideração sempre o preço por área
 
@@ -80,7 +83,7 @@ Features derivadas para apoio à análise:
 
 ***trimester*** -  trimestre do ano no qual ocorreu a transação
 
-##Data Filtering:
+## Data Filtering:
 
 Foram removidos por irrelevância ou redundancia:
  - 'sqft_living15', 'sqft_lot15', 'sqft_above', 'sqft_basement' e 'sqft_lot';
@@ -91,9 +94,9 @@ Foram removidos por irrelevância ou redundancia:
  
 Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram mantidos.
 
-##Exploratory Data Analysis:
+## Exploratory Data Analysis:
 
-###Análise Univariada
+### Análise Univariada
 
   Métricas após limpeza e organização dos dados:
 
@@ -103,9 +106,9 @@ Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram 
  
  Distribuição dos preços/área 
  
- ![price_area_dist](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/price_area_distribution.png)
+ ![Distribuição de preço/área](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/price_area_distribution.png)
  
-###Análise Bivariada
+### Análise Bivariada
 
 - Foi identificada uma grande variação de preço médio entre casas de 4 para 5;
 - A maior quantidade de transações ocorreu no segundo trimestre do ano, enquanto a menor quantidade ocorreu no primeiro trimestre
@@ -148,7 +151,7 @@ Conforme é visível no mapa de calor, todas as variáveis têm uma baixa correl
 
   Conforme o esperado, a característica que mais influencia de forma direta no preço são é localização, seguida da área.
   
-##Data Insights
+## Data Insights
 
 Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
 
@@ -178,7 +181,7 @@ Foram identificados 2975 imóveis com preço abaixo do valor médio da área e c
 
 # 8. Conclusions
 
-https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html
+[Mapa dos imóveis da base](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
 
 # 9. Deploy
 
@@ -197,13 +200,15 @@ https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price
 
 # Tecnologias utilizadas
 
-# LICENSE
- 
  Código:
  - Python (Pandas, Numpy, Seaborn, Geopandas)
  Produção: 
   - Heroku
   - Streamlit
+
+# LICENSE  
+
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/LICENSE)
  
 # Referências
 1) Comunidade DS: https://sejaumdatascientist.com/
