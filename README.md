@@ -22,8 +22,8 @@
 1) Casas com vista para o mar são mais caras;
 2) Casas que não foram renovadas são mais baratas;
 3) Existe uma época do ano na qual mais casas são vendidas;
-4) Existe um atributo numérico além da área e localização que possui alta correlação com os preços;
-5) Existe um atributo categórico que possui alta correlação com os preços;
+4) Existe um atributo numérico além da área que possui alta correlação com os preços;
+5) A característica qualitativa mais importante para um imóvel é a localização.
 
 # 3. Estratégia da Solução
 
@@ -115,7 +115,7 @@ Pela análise feita, as características com maior influência no preço são me
 **Hipótese 01: Imóveis com vista para o mar são mais caros**
 
 **Verdadeira**
-Casas com vista para o mar/água são aproximadamente 40% mais caras do que as casas que não têm. A hipótese se verifica mesmo quando se compara casas na mesma localidade
+Casas com vista para o mar/água são aproximadamente 194% mais caras do que as casas que não têm. A hipótese se verifica mesmo quando se compara casas na mesma localidade.
 
 **Hipótese 2: Casas que não foram renovadas são mais baratas**
 
@@ -127,44 +127,48 @@ Casas que não foram renovadas são aproximadamente 23% mais baratas
 **Verdadeira**
 
 A maioria das casas foi negociada no segundo trimestre (31,58%), enquanto o trimestre com menos negociações foi o primeiro (18,98%). 
+
 ![](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/transations_per__yr.png)
 
-**Hipótese 4: Existe um atributo categórico principal responsável pelo preço das casas**
+**Hipótese 4: Existe um atributo numérico principal além da área responsável pelo preço das casas**
+
+**Falsa**
+
+Conforme é visível no mapa de calor, todas as variáveis têm uma baixa correlação com o preço/área, com exceção da localização.
+
+**Hipótese 4: A localização é o fator que tem maior correlação com o preço final.
 
 **Verdadeira**
 
-**Hipótese 5: Existe um atributo numérico principal responsável pelo preço das casas**
-
-**Verdadeira**
-Conforme o esperado, as características que mais influenciam o preço são a área e a localização. Para além do óbvio, a característica com maior correlação com o preço final é o número de quartos, que no final é ligado a area do imóvel. Para cada quarto adicionado, há um aumento de aproximadamente 118% no preço médio do imóvel.
-
-
-INSERIR FIGURA DOS QUARTOSxPREÇO
-
+  Conforme o esperado, a característica que mais influencia de forma direta no preço são é localização, seguida da área.
+  
 *Data Insights*
 
 Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
 
+1) ***Casas abaixo do preço***
+  
+  Casas com preço abaixo do valor médio da região devem ser compradas e revendidas com lucro.
+  
+2) ***Casas com condição 4***
+  
+  Casas com preço igual ou abaixo do valor médio da região e condição igual a 4 devem ser compradas, renovadas para atingir o grau 5 e revendidas com um lucro maior.
+    
+3) **Períodos para as transações**
 
-**Períodos para as transações**
-
-O melhor período para compra de imóveis é no primeiro trimestre do ano, pois a procura é menor, o que permite negociações mais agressivas. Enquanto o melhor período para a venda é no segundo trimestre, quanto o mercado está mais aquecido.
-
-**Casas com preços/área abaixo da média da região podem ser um bom negócio para compra e venda**
-
-Foram identificadas 13097 casas que atendem essas condições. 
-
-**Casas com preços/área abaixo da média da região e com condição igual a 2 e 4 podem ser bons negócios para compra, reforma e venda**
-
-sas que atendem essas condições. 
-
-
-
-**Step 10. Deploy Modelo to Production:**
+  O melhor período para compra de imóveis é no primeiro trimestre do ano, pois a procura é menor, o que permite negociações mais agressivas. Enquanto o melhor período para a venda é no segundo trimestre, quanto o mercado está mais aquecido.
 
 
 # 7. Business Results
 
+As listas de imóveis que devem ser comprados e respectivas sugestões de preços encontram-se nos arquivos anexos (pasta 'reports') e também estão disponíveis no app.
+
+**Casas para serem compradas imediatamente**
+Foram identificados 9354 imóveis com preço abaixo do valor médio da área. A compra e posterior venda desses imóveis pelo preço médio da região trará uma expectativa de lucro bruto de U$ 971108343,18 (devem ser subtraídos os custos do processo de compra/venda)
+
+Casas para serem renovadas e posteriormente vendidas
+
+Foram identificados 2975 imóveis com preço abaixo do valor médio da área e condição igual a 4. A compra, reforma e posterior venda desses imóveis pelo preço médio das casas de padrão 5 trará uma expectativa de lucro bruto de U$ 834411054,54 (devem ser subtraídos os custos da reforma e do processo de compra/venda)
 
 # 8. Conclusions
 
@@ -173,7 +177,9 @@ sas que atendem essas condições.
 # 10. Next Steps to Improve
 comparação dos preços de casas semelhantes ao longo do tempo
 comparação das mesmas casas vendidas mais de uma vez
+comparar com o preço médio de casas de condição 5 trouxe alguns valores negativos
 
+* Deploy*
 
 # LICENSE
 
