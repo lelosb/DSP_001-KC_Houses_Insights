@@ -21,7 +21,7 @@
 
 1) Casas com vista para o mar são mais caras;
 2) Casas que não foram renovadas são mais baratas;
-3) Existe uma época do ano na qual mais casas são vendidas;
+3) Existe uma época do ano melhor para na qual mais casas são vendidas;
 4) Existe um atributo numérico além da área que possui alta correlação com os preços;
 5) A característica qualitativa mais importante para um imóvel é a localização.
 
@@ -68,8 +68,7 @@ INSERIR FLUXOGRAMA DA SOLUÇÃO
 Features derivadas para apoio à análise:
 
 ***area*** - alguns imóveis possuem área construída maior que a área do terreno e vice-versa. Para os cálculos foram filtradas a maior das áreas por imóvel.
-  Essa feature acabou sendo substituída. Utilizando a maior área entre a área construída ('sqft_living') e a área do terreno ('sqft_lot') surgiram problemas de adequação a realidade. O imóvel mais barato custava absurdos U$ 0,16/sqft, e dada a elevada quantidade de imóveis nessa faixa de valor, não poderiam se tratar de outliers. Uma breve pesquisa na internet³ nos mostrou que o valor correto para os anos de 2014/2015 seria algo entre U$90.00 e U$100.00/sqft. Dessa forma. ao invés de criar uma nova feature optou-se por utlizar a área construida para o cálculo, o que trouxe os valores para valores mais próximos da realidade e praticamente eliminou os outliers.
-  
+  ****Atualização****:Essa feature acabou sendo substituída. Utilizando a maior área entre a área construída ('sqft_living') e a área do terreno ('sqft_lot') surgiram problemas de adequação a realidade. O imóvel mais barato custava absurdos US$ 0,16/sqft, e dada a elevada quantidade de imóveis nessa faixa de valor, não poderiam se tratar de outliers. Uma breve pesquisa na internet³ nos mostrou que o valor correto para os anos de 2014/2015 seria algo entre U$90.00 e U$100.00/sqft. Dessa forma. ao invés de criar uma nova feature optou-se por utlizar a área construida para o cálculo, o que trouxe os valores para valores mais próximos da realidade e praticamente eliminou os outliers.
 
 ***price_area*** - média de preço por área. Para tornar a comparação justa, deve-se levar em consideração sempre o preço por área
 ***zipcode_price*** - Preço médio por área por zipcode - preço para comparação entre os imóveis da mesma região
@@ -80,7 +79,7 @@ Features derivadas para apoio à análise:
 
 Foram removidos por irrelevância ou redundancia:
  - 'sqft_living15', 'sqft_lot15', 'sqft_above', 'sqft_basement' e 'sqft_lot';
- - 'sqft_living' foi substituída por 'area');
+ - 'sqft_living' foi substituída por 'area' para facilitar a manipulação e entendimento do código;
  - Casas com número de quartos igual a 0 foram excluídas (13 imóveis, menos de 0,07% da base de dados);
  - Casas com número de banheiros igual a 0 foram excluídas (3 imóveis, menos de 0,02% da base de dados);
  - Sete imóveis possuíam as duas características, então poderiam ser imóveis comerciais. De qualquer forma, decidiu-se por excluí-los.
@@ -89,9 +88,9 @@ Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram 
 
 **Exploratory Data Analysis:**
 
-Análise Univariada
+***Análise Univariada***
 
-Métricas após limpeza e organização dos dados:
+  Métricas após limpeza e organização dos dados:
 
 ![metrics](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/metrics.png)
 
@@ -171,7 +170,7 @@ Casas para serem renovadas e posteriormente vendidas
 Foram identificados 2975 imóveis com preço abaixo do valor médio da área e condição igual a 4. A compra, reforma e posterior venda desses imóveis pelo preço médio das casas de padrão 5 trará uma expectativa de lucro bruto de U$ 834411054,54 (devem ser subtraídos os custos da reforma e do processo de compra/venda)
 
 # 8. Conclusions
-
+![](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
 # 9. Lessons Learned
 
 # 10. Next Steps to Improve
