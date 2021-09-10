@@ -137,7 +137,7 @@ Casas que não foram renovadas são aproximadamente 23% mais baratas
 
 A maioria das casas foi negociada no segundo trimestre (31,58%), enquanto o trimestre com menos negociações foi o primeiro (18,98%). 
 
-![](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/transations_per__yr.png)
+![transations_year](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/transations_per__yr.png)
 
 **Hipótese 4: Existe um atributo numérico principal além da área responsável pelo preço das casas**
 
@@ -186,7 +186,7 @@ Foram identificados 2975 imóveis com preço abaixo do valor médio da área e c
 
 # 8. Conclusions
 
-[Mapa dos imóveis da base](https://htmlpreview.github.io/https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
+[Mapa dos imóveis da base](https://htmlpreview.github.io/?https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
 
 # 9. Deploy
 
