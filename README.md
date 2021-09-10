@@ -163,7 +163,7 @@ Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
   
   Casas com preço igual ou abaixo do valor médio da região e condição igual a 4 devem ser compradas, renovadas para atingir o grau 5 e revendidas com um lucro maior.
   
-![price_condition](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/avg_price_condition_png)
+![price_condition](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/avg_price_condition.png)
     
 3) **Períodos para as transações**
 
@@ -175,6 +175,8 @@ Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
 
 # 7. Business Results
 
+[Mapa dos imóveis da base](https://htmlpreview.github.io/?https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
+
 As listas de imóveis que devem ser comprados e respectivas sugestões de preços encontram-se nos arquivos anexos (pasta 'reports') e também estão disponíveis no app.
 
 **Casas para serem compradas imediatamente**
@@ -185,8 +187,6 @@ Foram identificados 9354 imóveis com preço abaixo do valor médio da área. A 
 Foram identificados 2975 imóveis com preço abaixo do valor médio da área e condição igual a 4. A compra, reforma e posterior venda desses imóveis pelo preço médio das casas de padrão 5 trará uma expectativa de lucro bruto de U$ 834411054,54 (devem ser subtraídos os custos da reforma e do processo de compra/venda)
 
 # 8. Conclusions
-
-[Mapa dos imóveis da base](https://htmlpreview.github.io/?https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
 
 # 9. Deploy
 
