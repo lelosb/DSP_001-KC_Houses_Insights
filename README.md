@@ -104,7 +104,7 @@ Não foi encontrado nenhum 'id' repetido com datas iguais, por isso todos foram 
 
  - Após a mudança do cálculo de preço/área, os preços do dataset se ajustaram ao valores encontrados na pesquisa.
  
- Distribuição dos preços/área 
+ Distribuição dos preços/área (US$ / pé quadrado)
  
  ![Distribuição de preço/área](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/price_area_distribution.png)
  
@@ -137,7 +137,7 @@ Casas que não foram renovadas são aproximadamente 23% mais baratas
 
 A maioria das casas foi negociada no segundo trimestre (31,58%), enquanto o trimestre com menos negociações foi o primeiro (18,98%). 
 
-![](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/transations_per__yr.png)
+![transations_year](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/transations_per__yr.png)
 
 **Hipótese 4: Existe um atributo numérico principal além da área responsável pelo preço das casas**
 
@@ -162,13 +162,20 @@ Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
 2) ***Casas com condição 4***
   
   Casas com preço igual ou abaixo do valor médio da região e condição igual a 4 devem ser compradas, renovadas para atingir o grau 5 e revendidas com um lucro maior.
+  
+![price_condition](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/avg_price_condition.png)
     
 3) **Períodos para as transações**
 
   O melhor período para compra de imóveis é no primeiro trimestre do ano, pois a procura é menor, o que permite negociações mais agressivas. Enquanto o melhor período para a venda é no segundo trimestre, quanto o mercado está mais aquecido.
 
+4) **Casas com condição 1**
+
+  Imóveis nessas condições não valem a pena ser reformadas, pois o preço médio de uma casa em condição 2 é menor do que o preço médio das casas em condição 1.
 
 # 7. Business Results
+
+[Mapa dos imóveis da base](https://htmlpreview.github.io/?https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
 
 As listas de imóveis que devem ser comprados e respectivas sugestões de preços encontram-se nos arquivos anexos (pasta 'reports') e também estão disponíveis no app.
 
@@ -180,8 +187,6 @@ Foram identificados 9354 imóveis com preço abaixo do valor médio da área. A 
 Foram identificados 2975 imóveis com preço abaixo do valor médio da área e condição igual a 4. A compra, reforma e posterior venda desses imóveis pelo preço médio das casas de padrão 5 trará uma expectativa de lucro bruto de U$ 834411054,54 (devem ser subtraídos os custos da reforma e do processo de compra/venda)
 
 # 8. Conclusions
-
-[Mapa dos imóveis da base](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
 
 # 9. Deploy
 
