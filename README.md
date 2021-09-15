@@ -1,8 +1,8 @@
 # KC Houses Insights
 
-> Status: Colocando em produção ⚠️
+> Status: Em produção mas não finalizado ⚠️
 
-## Link do projeto em produção (em breve)
+## Link do projeto em produção 👉 https://kc-houses-insights.herokuapp.com/
 
 ![KingCount](https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/figures/king_count.jpeg)
 
@@ -30,8 +30,6 @@
 5) A característica qualitativa mais importante para um imóvel é a localização.
 
 # 3. Estratégia da Solução
-
-INSERIR FLUXOGRAMA DA SOLUÇÃO
 
 ## Data Description:
 
@@ -173,7 +171,7 @@ Abaixo seguem os insights obtidos ao longo do projeto pelo time de dados:
 
   Imóveis nessas condições não valem a pena ser reformadas, pois o preço médio de uma casa em condição 2 é menor do que o preço médio das casas em condição 1.
 
-# 7. Business Results
+# 4. Business Results
 
 [Mapa dos imóveis da base](https://htmlpreview.github.io/?https://github.com/lelosb/DSP_001-KC_Houses_Insights/blob/main/reports/map_price.html)
 
@@ -186,15 +184,19 @@ Foram identificados 9354 imóveis com preço abaixo do valor médio da área. A 
 
 Foram identificados 2975 imóveis com preço abaixo do valor médio da área e condição igual a 4. A compra, reforma e posterior venda desses imóveis pelo preço médio das casas de padrão 5 trará uma expectativa de lucro bruto de U$ 834411054,54 (devem ser subtraídos os custos da reforma e do processo de compra/venda)
 
-# 8. Conclusions
+# 5. Conclusions
 
-# 9. Deploy
+A principal conclusão é que os dados podem ocultar muitas oportunidades de negócio além trazer insights que podem gerar resultados financeiros expressivos.
 
- O modelo em produção será um aplicativo no Streamlit hospedado no Heroku. Está em fase de conclusão.
+# 6. Deploy
+
+ O modelo em produção será um aplicativo no Streamlit hospedado no Heroku. Está em fase de conclusão. Foi colocado um mvp em produção que será atualizado semanalmente.
  
-# 9. Lessons Learned
+# 7. Lessons Learned
 
-# 10. Next Steps to Improve
+Acredito que a principal lição aprendida foi comparar os dados com a realidade do mercado. A métrica de preço/área totalmente fora da realidade gerou "insights" falsos, que foram invalidados quando a métrica foi revista. Isso é uma lição de que os dados são muito importantes, mas não se pode ignorar a realidade e a experiência do time de negócios.
+
+# 8. Next Steps to Improve
 
   Sugestões para melhoria do projeto:
   - Comparação dos preços de casas semelhantes ao longo do tempo;
@@ -203,7 +205,7 @@ Foram identificados 2975 imóveis com preço abaixo do valor médio da área e c
   - Comparar com o preço médio de casas de condição 5 trouxe alguns valores negativos, isso porque algumas casas de condição 4 possuíam preço/área maior do que a média das casas com condição 5. Para evitar isso pode ser válido comparar as casas por região no próximo ciclo;
 
 
-# Tecnologias utilizadas
+# 9. Tecnologias utilizadas
 
  Código:
  - Python (Pandas, Numpy, Seaborn, Geopandas)
