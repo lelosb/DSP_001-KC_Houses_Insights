@@ -203,6 +203,7 @@ Acredito que a principal lição aprendida foi comparar os dados com a realidade
   - Utilizar um algoritmo de clusterização para encontrar grupos de imóveis;
   - Comparação das mesmas casas vendidas mais de uma vez;
   - Comparar com o preço médio de casas de condição 5 trouxe alguns valores negativos, isso porque algumas casas de condição 4 possuíam preço/área maior do que a média das casas com condição 5. Para evitar isso pode ser válido comparar as casas por região no próximo ciclo;
+  - Zipcodes mais negociados;
 
 
 # 9. Tecnologias utilizadas
